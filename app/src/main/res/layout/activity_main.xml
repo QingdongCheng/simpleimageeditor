@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:screenOrientation="portrait"
     tools:context="edu.purdue.qingdong.simpleimageeditor.MainActivity">
 
 
@@ -16,6 +17,7 @@
         android:layout_height="50dp"
         android:src="@drawable/camera"
         android:id="@+id/btnCamera"
+        android:onClick="onCamera"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         />
@@ -26,13 +28,14 @@
         android:layout_height="50dp"
         android:src="@drawable/gallery"
         android:id="@+id/btnGallery"
+        android:onClick="onGallery"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="360dp"
         android:layout_marginTop="60dp"
         android:id="@+id/imageView"
         android:src="@drawable/android"/>
@@ -44,7 +47,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="30dp"
-        android:onClick="onEdit" />
+        android:onClick="onEdit"
+        android:id="@+id/button3" />
 
     <Button
         android:layout_width="90dp"
@@ -54,6 +58,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="30dp"
         android:onClick="onHistory"
-        android:nestedScrollingEnabled="true" />
+        android:nestedScrollingEnabled="true"
+        android:id="@+id/button4" />
 
 </RelativeLayout>
