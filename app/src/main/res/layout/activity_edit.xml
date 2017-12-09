@@ -7,12 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#73a2ef"
     tools:context="edu.purdue.qingdong.simpleimageeditor.EditActivity">
 
     <Button
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="Crop"
+        android:textAllCaps="false"
         android:id="@+id/btnCrop"
         android:onClick="onCrop"
         android:layout_above="@+id/btnContrast"
@@ -22,6 +24,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="Brightness"
+        android:textAllCaps="false"
         android:id="@+id/btnBrightness"
         android:layout_above="@+id/btnSharpness"
         android:layout_centerHorizontal="true" />
@@ -30,8 +33,9 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="GrayScale"
+        android:textAllCaps="false"
         android:id="@+id/btnGrayscale"
-        android:layout_above="@+id/btnPaint"
+        android:layout_above="@+id/btnAddText"
         android:layout_alignParentEnd="true"
         android:onClick="onGrayscale" />
 
@@ -39,6 +43,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="Contrast"
+        android:textAllCaps="false"
         android:id="@+id/btnContrast"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
@@ -47,6 +52,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:text="Sharpness"
+        android:textAllCaps="false"
         android:id="@+id/btnSharpness"
         android:layout_alignTop="@+id/btnContrast"
         android:layout_centerHorizontal="true" />
@@ -55,8 +61,9 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Add text"
+        android:textAllCaps="false"
         android:onClick="addText"
-        android:id="@+id/btnPaint"
+        android:id="@+id/btnAddText"
         android:layout_alignTop="@+id/btnSharpness"
         android:layout_alignStart="@+id/btnGrayscale" />
 
@@ -71,19 +78,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save to history"
+        android:textAllCaps="false"
         android:onClick="onSaveToHistory"
         android:id="@+id/btnSave"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Share to Facebook"
-        android:id="@+id/button"
+        android:id="@+id/btnShare"
+        android:textAllCaps="false"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/editImageView"
-        android:layout_toStartOf="@+id/btnSave"
+
         android:onClick="shareToFacebook" />
+
 </RelativeLayout>

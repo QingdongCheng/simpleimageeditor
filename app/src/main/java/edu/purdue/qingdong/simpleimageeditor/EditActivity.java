@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -48,6 +49,7 @@ import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
+import com.facebook.share.widget.ShareButton;
 import com.facebook.share.widget.ShareDialog;
 
 
@@ -65,20 +67,38 @@ public class EditActivity extends AppCompatActivity {
     private Bitmap bitmap;
     private Bitmap bitmapAddText;
 
-
-
     private DataBaseHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        setTitle("Image Editor");
 
         db = new DataBaseHandler(this);
 
-
         editImageView = (ImageView) findViewById(R.id.editImageView);
         imagePath = getIntent().getStringExtra("imagePath");
+
+        Button btnCrop = (Button)findViewById(R.id.btnCrop);
+        Button btnBrightness = (Button)findViewById(R.id.btnBrightness);
+        Button btnGrayscale = (Button)findViewById(R.id.btnGrayscale);
+        Button btnContrast = (Button)findViewById(R.id.btnContrast);
+        Button btnSharpness = (Button)findViewById(R.id.btnSharpness);
+        Button btnAddText = (Button)findViewById(R.id.btnAddText);
+        Button btnSave = (Button)findViewById(R.id.btnSave);
+        Button btnShare = (Button)findViewById(R.id.btnShare);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Green_Avocado.ttf");
+
+        btnCrop.setTypeface(custom_font);
+        btnBrightness.setTypeface(custom_font);
+        btnGrayscale.setTypeface(custom_font);
+        btnContrast.setTypeface(custom_font);
+        btnSharpness.setTypeface(custom_font);
+        btnAddText.setTypeface(custom_font);
+        btnSave.setTypeface(custom_font);
+        btnShare.setTypeface(custom_font);
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;      // 1/4 of original image
@@ -184,14 +204,13 @@ public class EditActivity extends AppCompatActivity {
 
     public void addText(View v) {
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 2; // 1/2 of original image
+        options.inSampleSize = 1; // 1/2 of original image
 
         if (imagePath == null) {
             //not get the pic from gallery or take picture from camera
             bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.android);
         } else {
             bitmap = BitmapFactory.decodeFile(imagePath,options);
-
         }
 
         bitmapAddText = bitmap.copy(Bitmap.Config.ARGB_8888, true);
@@ -249,6 +268,9 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void onSaveToHistory(View view) {
+        if (imagePath == null) {
+            return;
+        }
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
 

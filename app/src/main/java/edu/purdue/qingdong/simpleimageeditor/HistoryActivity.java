@@ -20,6 +20,7 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        setTitle("Image Editor");
 
         DataBaseHandler db = new DataBaseHandler(this);
         /*
